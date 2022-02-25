@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/pro81/Documents/Assignment/Pemograman Mobile/apicoba2/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/Users/pro81/Documents/Assignment/Pemograman Mobile/apicoba2/app/src/main/res/layout/list_item.xml" value="0.25" />
+        <entry key="..\:/Users/pro81/Documents/Assignment/Pemograman Mobile/apicoba2/app/src/main/res/layout/activity_create.xml" value="0.28306159420289856" />
+        <entry key="..\:/Users/pro81/Documents/Assignment/Pemograman Mobile/apicoba2/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/pro81/Documents/Assignment/Pemograman Mobile/apicoba2/app/src/main/res/layout/fragment_create.xml" value="0.28306159420289856" />
+        <entry key="..\:/Users/pro81/Documents/Assignment/Pemograman Mobile/apicoba2/app/src/main/res/layout/list_item.xml" value="0.38446969696969696" />
       </map>
     </option>
   </component>

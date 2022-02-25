@@ -9,8 +9,8 @@
     android:layout_marginRight="5dp"
     android:layout_marginBottom="3dp"
     android:padding="3dp"
-    app:cardElevation="2dp"
-    app:cardMaxElevation="2dp">
+    app:cardElevation="21dp"
+    app:cardMaxElevation="21dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -40,16 +40,19 @@
             android:layout_height="35dp"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="10dp"
+            android:foreground="?android:attr/selectableItemBackground"
             android:drawableLeft="@android:drawable/ic_delete"
             android:padding="5dp" />
 
         <TextView
+            android:id="@+id/btnEdit"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="2dp"
             android:layout_toLeftOf="@+id/btnDelete"
             android:drawableLeft="@android:drawable/ic_menu_edit"
+            android:foreground="?android:attr/selectableItemBackground"
             android:padding="5dp" />
     </RelativeLayout>
 

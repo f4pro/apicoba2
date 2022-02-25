@@ -14,8 +14,9 @@ import java.lang.StringBuilder
 
 const val BASE_URL = "https://61601920faa03600179fb8d2.mockapi.io/"
 class MainActivity : AppCompatActivity() {
-    lateinit var myAdapter: MyAdapter
     lateinit var linearLayoutManager: LinearLayoutManager
+
+    private val list = ArrayList<PostResponseItem>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,35 +24,25 @@ class MainActivity : AppCompatActivity() {
 
         data_rv.setHasFixedSize(true)
         linearLayoutManager = LinearLayoutManager(this)
-        data_rv.layoutManager = linearLayoutManager
 
-        getMyData()
-    }
-    private fun getMyData() {
-        val retrofitBuilder = Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl(BASE_URL)
-            .build()
-            .create(ApiInterface::class.java)
-
-        val retrofitData = retrofitBuilder.getData()
-
-        retrofitData.enqueue(object : Callback<List<ListDataItem>?> {
+        RetrofitClient.instance.getPosts().enqueue(object: Callback<ArrayList<PostResponseItem>>{
             override fun onResponse(
-                call: Call<List<ListDataItem>?>,
-                response: Response<List<ListDataItem>?>
+                call: Call<ArrayList<PostResponseItem>>,
+                response: Response<ArrayList<PostResponseItem>>
             ) {
-                val responseBody = response.body()!!
+                val responseCode = response.code().toString()
+                codeTV.text = responseCode
+                response.body()?.let { list.addAll(it) }
+                val adapter = PostAdapter(list)
+                data_rv.adapter = adapter
+            }
 
-                myAdapter = MyAdapter(baseContext, responseBody)
-                myAdapter.notifyDataSetChanged()
-                data_rv.adapter = myAdapter
+            override fun onFailure(call: Call<ArrayList<PostResponseItem>>, t: Throwable) {
 
             }
 
-            override fun onFailure(call: Call<List<ListDataItem>?>, t: Throwable) {
-                d("MainActivity", "onFailure: " + t.message)
-            }
         })
+
     }
+
 }
