@@ -13,7 +13,7 @@ class PostAdapter(private val list: ArrayList<PostResponseItem>): RecyclerView.A
                 val text = postResponseItem.nama
                 namaTv.text = text
                 val textName = postResponseItem.id
-                namaidTv.text = textName
+                namaidTv.text = textName.toString()
             }
         }
     }

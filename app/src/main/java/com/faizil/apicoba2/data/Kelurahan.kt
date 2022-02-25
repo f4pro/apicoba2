@@ -1,3 +1,7 @@
 package com.faizil.apicoba2.data
 
-class Kelurahan
+data class Kelurahan(
+    val id: Int,
+    val id_kecamatan: Int,
+    val nama: String
+)

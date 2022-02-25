@@ -6,7 +6,7 @@ import com.faizil.apicoba2.data.Kelurahan
 import com.faizil.apicoba2.data.Provinsi
 
 data class PostResponseItem(
-    val id: String,
+    val id: Int,
     val kabupaten: Kabupaten,
     val kecamatan: Kecamatan,
     val kelurahan: Kelurahan,
