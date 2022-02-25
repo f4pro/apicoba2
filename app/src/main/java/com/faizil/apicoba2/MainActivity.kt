@@ -2,9 +2,11 @@ package com.faizil.apicoba2
 
 import android.os.Bundle
 import android.util.Log.d
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.list_item.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -12,7 +14,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.StringBuilder
 
-const val BASE_URL = "https://61601920faa03600179fb8d2.mockapi.io/"
 class MainActivity : AppCompatActivity() {
     lateinit var linearLayoutManager: LinearLayoutManager
 
@@ -24,6 +25,10 @@ class MainActivity : AppCompatActivity() {
 
         data_rv.setHasFixedSize(true)
         linearLayoutManager = LinearLayoutManager(this)
+
+        /*btnDelete.setOnClickListener{
+            deletePost()
+        }*/
 
         RetrofitClient.instance.getPosts().enqueue(object: Callback<ArrayList<PostResponseItem>>{
             override fun onResponse(
@@ -43,6 +48,19 @@ class MainActivity : AppCompatActivity() {
 
         })
 
+    }
+
+    private fun deletePost(){
+        RetrofitClient.instance.deletePost(1).enqueue(object : Callback<Void>{
+            override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                codeTV.text = response.code().toString()
+            }
+
+            override fun onFailure(call: Call<Void>, t: Throwable) {
+                codeTV.text = t.message
+            }
+
+        })
     }
 
 }
