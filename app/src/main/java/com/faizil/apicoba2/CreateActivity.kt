@@ -10,11 +10,5 @@ class CreateActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create)
     }
-/*
-    private fun createPos(){
-        RetrofitClient.instance.createPost(
-            name = name
-        )
-    }
-*/
+
 }
