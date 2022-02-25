@@ -1,3 +1,7 @@
 package com.faizil.apicoba2.data
 
-class Kecamatan
+data class Kecamatan(
+    val id: Int,
+    val id_kota: Int,
+    val nama: String
+)

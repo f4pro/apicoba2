@@ -1,5 +1,6 @@
 package com.faizil.apicoba2
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log.d
 import android.widget.Toast
@@ -30,6 +31,12 @@ class MainActivity : AppCompatActivity() {
             deletePost()
         }*/
         showPost()
+
+        addPostBtn.setOnClickListener {
+            startActivity(Intent(this, CreateActivity::class.java))
+        }
+
+
 
 
 

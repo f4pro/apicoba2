@@ -1,3 +1,6 @@
 package com.faizil.apicoba2.data
 
-class Provinsi
+data class Provinsi(
+    val id: Int,
+    val nama: String
+)
