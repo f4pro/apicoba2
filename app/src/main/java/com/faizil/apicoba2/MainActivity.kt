@@ -29,7 +29,12 @@ class MainActivity : AppCompatActivity() {
         /*btnDelete.setOnClickListener{
             deletePost()
         }*/
+        showPost()
 
+
+
+    }
+    private fun showPost(){
         RetrofitClient.instance.getPosts().enqueue(object: Callback<ArrayList<PostResponseItem>>{
             override fun onResponse(
                 call: Call<ArrayList<PostResponseItem>>,
@@ -47,7 +52,6 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
-
     }
 
     private fun deletePost(){
